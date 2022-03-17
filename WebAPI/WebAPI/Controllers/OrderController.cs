@@ -13,9 +13,9 @@ namespace WebAPI.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly DonationDBContext _context;
+        private readonly GibAdsDBContext _context;
 
-        public OrderController(DonationDBContext context)
+        public OrderController(GibAdsDBContext context)
         {
             _context = context;
         }

@@ -1,27 +1,28 @@
+import { ACTION_TYPES } from "./api";
 import api from "./api";
 
-import { ACTION_TYPES } from "./api";
+
 
 
 export const fetchAll = () => dispatch => {
-    api.order().fetchAll()
+    api.client().fetchAll()
         .then(response => {
             dispatch({
-                type: ACTION_TYPES.ORDER.FETCH_ALL,
-                payload: response.data
-            })
+              type: ACTION_TYPES.CLIENT.FETCH_ALL,
+              payload: response.data,
+            });
         })
         .catch(err => console.log(err))
 }
 
 export const create = (data, onSuccess) => dispatch => {
     
-    api.order().create(data)
+    api.client().create(data)
         .then(res => {
             dispatch({
-                type: ACTION_TYPES.ORDER.CREATE,
-                payload: res.data
-            })
+              type: ACTION_TYPES.CLIENT.CREATE,
+              payload: res.data,
+            });
             onSuccess()
         })
         .catch(err => console.log(err))
@@ -29,22 +30,22 @@ export const create = (data, onSuccess) => dispatch => {
 
 export const update = (id, data, onSuccess) => dispatch => {
     
-    api.order().update(id, data)
+    api.client().update(id, data)
         .then(res => {
             dispatch({
-                type: ACTION_TYPES.ORDER.UPDATE,
-                payload: { id, ...data }
-            })
+              type: ACTION_TYPES.CLIENT.UPDATE,
+              payload: { id, ...data },
+            });
             onSuccess()
         })
         .catch(err => console.log(err))
 }
 
 export const Delete = (id, onSuccess) => dispatch => {
-    api.order().delete(id)
+    api.client().delete(id)
         .then(res => {
             dispatch({
-                type: ACTION_TYPES.ORDER.DELETE,
+                type: ACTION_TYPES.CLIENT.DELETE,
                 payload: id
             })
             onSuccess()

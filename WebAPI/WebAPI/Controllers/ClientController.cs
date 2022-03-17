@@ -11,45 +11,45 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DCandidateController : ControllerBase
+    public class ClientController : ControllerBase
     {
-        private readonly DonationDBContext _context;
+        private readonly GibAdsDBContext _context;
 
-        public DCandidateController(DonationDBContext context)
+        public ClientController(GibAdsDBContext context)
         {
             _context = context;
         }
 
-        // GET: api/DCandidate
+        // GET: api/client
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DCandidate>>> GetDCandidates()
+        public async Task<ActionResult<IEnumerable<Client>>> GetClients()
         {
-            return await _context.DCandidates.ToListAsync();
+            return await _context.Clients.ToListAsync();
         }
 
-        // GET: api/DCandidate/5
+        // GET: api/Client/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DCandidate>> GetDCandidate(int id)
+        public async Task<ActionResult<Client>> GetClient(int id)
         {
-            var dCandidate = await _context.DCandidates.FindAsync(id);
+            var client = await _context.Clients.FindAsync(id);
 
-            if (dCandidate == null)
+            if (client == null)
             {
                 return NotFound();
             }
 
-            return dCandidate;
+            return client;
         }
 
-        // PUT: api/DCandidate/5
+        // PUT: api/client/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDCandidate(int id, DCandidate dCandidate)
+        public async Task<IActionResult> PutClient(int id, Client client)
         {
-            dCandidate.id = id;
+            client.id = id;
 
-            _context.Entry(dCandidate).State = EntityState.Modified;
+            _context.Entry(client).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace WebAPI.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DCandidateExists(id))
+                if (!ClientExists(id))
                 {
                     return NotFound();
                 }
@@ -70,37 +70,37 @@ namespace WebAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/DCandidate
+        // POST: api/client
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<DCandidate>> PostDCandidate(DCandidate dCandidate)
+        public async Task<ActionResult<Client>> PostClient(Client client)
         {
-            _context.DCandidates.Add(dCandidate);
+            _context.Clients.Add(client);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDCandidate", new { id = dCandidate.id }, dCandidate);
+            return CreatedAtAction("GetClient", new { id = client.id }, client);
         }
 
-        // DELETE: api/DCandidate/5
+        // DELETE: api/client/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<DCandidate>> DeleteDCandidate(int id)
+        public async Task<ActionResult<Client>> DeleteClient(int id)
         {
-            var dCandidate = await _context.DCandidates.FindAsync(id);
-            if (dCandidate == null)
+            var client = await _context.Clients.FindAsync(id);
+            if (client == null)
             {
                 return NotFound();
             }
 
-            _context.DCandidates.Remove(dCandidate);
+            _context.Clients.Remove(client);
             await _context.SaveChangesAsync();
 
-            return dCandidate;
+            return client;
         }
 
-        private bool DCandidateExists(int id)
+        private bool ClientExists(int id)
         {
-            return _context.DCandidates.Any(e => e.id == id);
+            return _context.Clients.Any(e => e.id == id);
         }
     }
 }

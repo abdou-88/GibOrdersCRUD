@@ -25,12 +25,33 @@ namespace WebAPI.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.id);
                 });
+
+                migrationBuilder.CreateTable(
+
+                name: "Clients",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    clientName = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    clientEmail = table.Column<string>(type: "nvarchar(100)", nullable: true),
+                    dateOfJoining = table.Column<string>(type: "nvarchar(50)", nullable: true),
+                    clientPhoto = table.Column<string>(type: "nvarchar(500)", nullable: true),
+                   
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.id);
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Orders");
+                 
+            migrationBuilder.DropTable(
+                name: "Clients");
         }
     }
 }

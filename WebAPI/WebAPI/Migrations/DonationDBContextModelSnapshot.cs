@@ -7,8 +7,8 @@ using WebAPI.Models;
 
 namespace WebAPI.Migrations
 {
-    [DbContext(typeof(DonationDBContext))]
-    partial class DonationDBContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(GibAdsDBContext))]
+    partial class GibAdsDBContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -17,36 +17,6 @@ namespace WebAPI.Migrations
                 .HasAnnotation("ProductVersion", "3.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("WebAPI.Models.DCandidate", b =>
-                {
-                    b.Property<int>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("address")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("bloodGroup")
-                        .HasColumnType("nvarchar(3)");
-
-                    b.Property<string>("email")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("fullName")
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("mobile")
-                        .HasColumnType("nvarchar(16)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("DCandidates");
-                });
 
             modelBuilder.Entity("WebAPI.Models.Order", b =>
             {
@@ -77,6 +47,33 @@ namespace WebAPI.Migrations
 
                 b.ToTable("Orders");
             });
+
+
+            modelBuilder.Entity("WebAPI.Models.Client", b =>
+            {
+                b.Property<int>("id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int")
+                    .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                b.Property<string>("clientName")
+                    .HasColumnType("nvarchar(100)");
+
+                b.Property<string>("clientEmail")
+                    .HasColumnType("nvarchar(100)");
+
+                b.Property<string>("dateOfJoining")
+                    .HasColumnType("nvarchar(50)");
+
+                b.Property<string>("clientPhoto")
+                    .HasColumnType("nvarchar(500)");
+
+
+                b.HasKey("id");
+
+                b.ToTable("Clients");
+            });
+
 #pragma warning restore 612, 618
         }
     }

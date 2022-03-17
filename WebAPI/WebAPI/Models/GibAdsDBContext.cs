@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Models
 {
-    public class DonationDBContext:DbContext
+    public class GibAdsDBContext:DbContext
     {
-        public DonationDBContext(DbContextOptions<DonationDBContext> options):base(options)
+        public GibAdsDBContext(DbContextOptions<GibAdsDBContext> options):base(options)
         {
 
         }
 
-        public DbSet<DCandidate> DCandidates { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<Client> Clients { get; set; }
     }
 
 }

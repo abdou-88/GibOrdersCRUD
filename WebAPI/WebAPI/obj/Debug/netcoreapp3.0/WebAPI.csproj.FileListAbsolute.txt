@@ -330,3 +330,4 @@ C:\Users\ac25362\Desktop\Vscode projects\C# Projects\working ones\CRUD-React-Asp
 C:\Users\ac25362\Desktop\Vscode projects\C# Projects\working ones\CRUD-React-Asp.Net\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.dll
 C:\Users\ac25362\Desktop\Vscode projects\C# Projects\working ones\CRUD-React-Asp.Net\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.pdb
 C:\Users\ac25362\Desktop\Vscode projects\C# Projects\working ones\CRUD-React-Asp.Net\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.genruntimeconfig.cache
+C:\Users\ac25362\Desktop\Vscode projects\C# Projects\working ones\CRUD-React-Asp.Net\WebAPI\WebAPI\obj\Debug\netcoreapp3.0\WebAPI.csproj.CopyComplete

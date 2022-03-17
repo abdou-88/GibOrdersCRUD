@@ -22,8 +22,8 @@ const styles = theme => ({
 })
 
 const initialFieldValues = {
-  orderType: "",
   clientID: "",
+  orderType: "",
   oImagePath: "",
   oVideoPath: "",
   locationId: "",

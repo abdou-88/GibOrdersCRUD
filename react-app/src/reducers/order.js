@@ -1,4 +1,4 @@
-import { ACTION_TYPES } from "../actions/order";
+import { ACTION_TYPES } from "../actions/api";
 const initialState = {
     list: []
 }
@@ -7,25 +7,25 @@ const initialState = {
 export const order = (state = initialState, action) => {
 
     switch (action.type) {
-        case ACTION_TYPES.FETCH_ALL:
+        case ACTION_TYPES.ORDER.FETCH_ALL:
             return {
                 ...state,
                 list: [...action.payload]
             }
 
-        case ACTION_TYPES.CREATE:
+        case ACTION_TYPES.ORDER.CREATE:
             return {
                 ...state,
                 list: [...state.list, action.payload]
             }
 
-        case ACTION_TYPES.UPDATE:
+        case ACTION_TYPES.ORDER.UPDATE:
             return {
                 ...state,
                 list: state.list.map(x => x.id === action.payload.id ? action.payload : x)
             }
 
-        case ACTION_TYPES.DELETE:
+        case ACTION_TYPES.ORDER.DELETE:
             return {
                 ...state,
                 list: state.list.filter(x => x.id !== action.payload)
